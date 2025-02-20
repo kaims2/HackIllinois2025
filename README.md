@@ -1,5 +1,11 @@
 # The Scout
 
+<img
+    src="./static/images/assembled_kits/all_kits.jpg"
+    alt="All car kits"
+    width="1000"
+/>
+
 ## Prompt
 
 Build an autonomous vehicle utilizing at least the following components:
