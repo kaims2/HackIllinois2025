@@ -18,4 +18,5 @@ if __name__ == '__main__':
     servo.max()
     time.sleep(1)
     servo.mid()
+    time.sleep(1)
     servo.close()
