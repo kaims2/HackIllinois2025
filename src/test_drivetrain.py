@@ -2,6 +2,7 @@ import gpiozero
 from scout import constants
 from scout.drivetrain import Drivetrain
 import time
+import signal
 
 drivetrain = Drivetrain()
 
@@ -27,6 +28,13 @@ def test_motor(motor: gpiozero.Motor):
 
 
 if __name__ == '__main__':
+
+    def signal_handler(sig, frame):
+        drivetrain.left_motor.close()
+        drivetrain.right_motor.close()
+        exit(0)
+
+    signal.signal(signal.SIGINT, signal_handler)
 
     print('testing left motor')
     test_motor(drivetrain.left_motor)
