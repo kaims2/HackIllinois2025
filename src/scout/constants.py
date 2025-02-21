@@ -29,11 +29,11 @@ ULTRASONIC_PINS: types.UltrasonicPinsConfig = {
 
 BUZZER_PIN: int = 8
 
-INFRARED_PINS: types.InfraredPinsConfig = {
-    'sensor_1': 3,
-    'sensor_2': 5,
-    'sensor_3': 4,
-    'sensor_4': 18
+LINE_SENSOR_PINS: types.LineSensorPinsConfig = {
+    'far_left': 3,
+    'middle_left': 5,
+    'middle_right': 4,
+    'far_right': 18
 }
 
 CAMERA_PINS: types.CameraPinsConfig = {

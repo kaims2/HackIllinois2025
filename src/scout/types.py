@@ -24,11 +24,11 @@ class UltrasonicPinsConfig(typing.TypedDict):
     servo: int
 
 
-class InfraredPinsConfig(typing.TypedDict):
-    sensor_1: int
-    sensor_2: int
-    sensor_3: int
-    sensor_4: int
+class LineSensorPinsConfig(typing.TypedDict):
+    far_left: int
+    middle_left: int
+    middle_right: int
+    far_right: int
 
 
 class CameraPinsConfig(typing.TypedDict):
