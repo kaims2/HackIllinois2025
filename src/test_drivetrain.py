@@ -8,19 +8,19 @@ drivetrain = Drivetrain()
 
 def test_motor(motor: gpiozero.Motor):
     for i in range(100):
-        motor.forward(100)
+        motor.forward(i/100)
         time.sleep(1/100)
 
     for i in range(99, -1, -1):
-        motor.forward(i)
+        motor.forward(i/100)
         time.sleep(1/99)
 
     for i in range(100):
-        motor.backward(100)
+        motor.backward(i/100)
         time.sleep(1/100)
 
     for i in range(99, -1, -1):
-        motor.backward(i)
+        motor.backward(i/100)
         time.sleep(1/99)
 
     motor.stop()
