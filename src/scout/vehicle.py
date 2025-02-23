@@ -16,3 +16,6 @@ class Vehicle:
         self.drivetrain = Drivetrain()
         self.line_sensors = LineSensors()
         self.ultrasonic_system = UltrasonicSystem()
+
+    def run(self):
+        pass

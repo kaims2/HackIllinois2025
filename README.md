@@ -1,8 +1,8 @@
 # The Scout
 
 <img
-    src="./static/images/assembled_kits/all_kits.jpg"
-    alt="All car kits"
+    src="./static/images/assembled_kits/the_scout.jpg"
+    alt="The Scout"
     width="1000"
 />
 
