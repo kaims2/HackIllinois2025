@@ -4,7 +4,7 @@ import signal
 import time
 
 sensor = gpiozero.DistanceSensor(
-    constants.ULTRASONIC_PINS['echo'], constants.ULTRASONIC_PINS['trig'])
+    echo=constants.ULTRASONIC_PINS['echo'], trig=constants.ULTRASONIC_PINS['trig'])
 
 if __name__ == '__main__':
 
