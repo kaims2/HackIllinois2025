@@ -22,8 +22,8 @@ DRIVETRAIN_PIN: types.DrivetrainPinsConfig = {
 
 
 ULTRASONIC_PINS: types.UltrasonicPinsConfig = {
-    'trig': 5,  # 0,
-    'echo': 6,  # 1,
+    'trig': 5,  # 1,
+    'echo': 6,  # 0,
     'servo': 23,  # 23
 }
 
