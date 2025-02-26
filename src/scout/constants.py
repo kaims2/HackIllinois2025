@@ -37,6 +37,6 @@ LINE_SENSOR_PINS: types.LineSensorPinsConfig = {
 }
 
 CAMERA_PINS: types.CameraPinsConfig = {
-    'pan_servo': 19,  # 9
-    'tilt_servo': 11  # 11
+    'tilt_servo': 19,  # 9
+    'pan_servo': 11  # 11
 }
