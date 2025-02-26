@@ -1,18 +1,16 @@
 import gpiozero
 from scout import constants
 from scout.camera import Camera
+from scout.servo import Servo
 
 
 class CameraSystem:
 
-    pan_servo: gpiozero.AngularServo
-    tilt_servo: gpiozero.AngularServo
+    pan_servo: Servo
+    tilt_servo: Servo
     camera: Camera
 
     def __init__(self):
-
-        self.pan_servo = gpiozero.AngularServo(
-            pin=constants.CAMERA_PINS['pan_servo'], max_angle=90, min_angle=-90)
-        self.tilt_servo = gpiozero.AngularServo(
-            constants.CAMERA_PINS['tilt_servo'], max_angle=45, min_angle=-135)
+        self.pan_servo = Servo(constants.CAMERA_PINS['pan_servo'])
+        self.tilt_servo = Servo(constants.CAMERA_PINS['tilt_servo'])
         self.camera = Camera()

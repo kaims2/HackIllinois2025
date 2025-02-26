@@ -1,12 +1,11 @@
 import gpiozero
 from scout import constants
+from scout.servo import Servo
 import time
 import signal
 
-pan_servo = gpiozero.AngularServo(
-    constants.CAMERA_PINS['pan_servo'], min_angle=-90, max_angle=90)
-tilt_servo = gpiozero.AngularServo(
-    constants.CAMERA_PINS['tilt_servo'], min_angle=-135, max_angle=45)
+pan_servo = Servo(constants.CAMERA_PINS['pan_servo'])
+tilt_servo = Servo(constants.CAMERA_PINS['tilt_servo'])
 
 if __name__ == '__main__':
 
@@ -20,11 +19,11 @@ if __name__ == '__main__':
 
     signal.signal(signal.SIGINT, signal_handler)
 
-    for angle in [0, 45, 90, 45, 0, -45, -90, -45, 0]:
+    for angle in [90, 135, 180, 135, 90, 45, 0, 45, 90]:
         pan_servo.angle = angle
         time.sleep(1)
 
-    for angle in [0, 45, 0, -45, -90, -135, -90, -45, 0]:
+    for angle in [90, 135, 180, 135, 90, 45, 0, 45, 90]:
         tilt_servo.angle = angle
         time.sleep(1)
 

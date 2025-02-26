@@ -1,10 +1,10 @@
 import gpiozero
 from scout import constants
+from scout.servo import Servo
 import time
 import signal
 
-servo = gpiozero.AngularServo(
-    constants.ULTRASONIC_PINS['servo'], max_angle=90, min_angle=-90)
+servo = Servo(constants.ULTRASONIC_PINS['servo'])
 
 if __name__ == '__main__':
 
@@ -12,6 +12,8 @@ if __name__ == '__main__':
         servo.close()
         exit(0)
 
-    for angle in [0, 45, 90, 45, 0, -45, -90, -45, 0]:
+    signal.signal(signal.SIGINT, signal_handler)
+
+    for angle in [90, 135, 180, 135, 90, 45, 0, 45, 90]:
         servo.angle = angle
         time.sleep(1)
