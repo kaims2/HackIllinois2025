@@ -1,11 +1,11 @@
 from scout import constants
+from scout.buzzer import Buzzer
 import time
 import signal
-import gpiozero
 
 if __name__ == '__main__':
 
-    buzzer = gpiozero.Buzzer(constants.BUZZER_PIN)
+    buzzer = Buzzer(constants.BUZZER_PIN)
 
     def signal_handler(sig, frame):
         buzzer.off()
