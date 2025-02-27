@@ -37,4 +37,6 @@ Build an autonomous vehicle utilizing at least the following components:
 
 ### Getting Started
 
-Complete all the instructions from the assembly instructions tutorial.
+- Complete all the instructions from the assembly instructions tutorial. d
+- **Do NOT** run scripts in the **yahboom_provided_source_code**, use it only for reference. The physical pin numbers have changed. Running these scripts could damage your raspberry pi.
+- Use the code in the **src** folder to run your vehicle. Run the `test_<item>.py` scripts to get started.
