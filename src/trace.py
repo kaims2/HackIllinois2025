@@ -21,6 +21,13 @@ def back(leftspeed, rightspeed):
 #left
 def left(leftspeed, rightspeed):
     drivetrain.right_motor.forward(rightspeed)
+    drivetrain.left_motor.forward(0)
+    
+
+#right
+def right(leftspeed, rightspeed):
+    drivetrain.right_motor.forward(0)
+    drivetrain.left_motor.forward(leftspeed)
 
 #turn left in place
 def spin_left(leftspeed, rightspeed):
@@ -32,12 +39,11 @@ def spin_right(leftspeed, rightspeed):
     drivetrain.left_motor.forward(leftspeed)
     drivetrain.right_motor.backward(rightspeed)
 
+def stop():
+    drivetrain.left_motor.forward(0)
+    drivetrain.right_motor.backward(0)
 
 if __name__ == '__main__':
-
-
-
-
 
     def signal_handler(sig, frame):
         drivetrain.left_motor.close()
@@ -51,27 +57,31 @@ if __name__ == '__main__':
     ml_val = line_sensors.middle_left_sensor.value
     mr_val = line_sensors.middle_right_sensor.value
 
-    if TrackSensorLeftValue1 == False and (TrackSensorRightValue1 == False or  TrackSensorRightValue2 == False):
-        spin_left(0.5, 0.5)
-	    time.sleep(0.08)
-  
+
+    while (fl_val or fr_val or ml_val or mr_val) == True:
+        if fl_val == False and (mr_val == False or  fr_val == False):
+            spin_left(0.5, 0.5)
+            time.sleep(0.08)
         # 0 X X X
         #Left_sensor1 detected black line
-     elif TrackSensorLeftValue1 fl_val == False:
-        spin_left(0.5, 0.5)
-
-    elif ml_val == False and mr_val == True:
-        left(0,0.5)
+        elif fl_val == False:
+            spin_left(0.5, 0.5)
+            time.sleep(0.08)
+        elif ml_val == False and mr_val == True:
+            left(0,0.5)
+            time.sleep(0.08)
    
-         #4 tracking pins level status
+        #4 tracking pins level status
         # X 1 0 X  
-    elif ml_val == True and mr_val == False:
-        right(0.5, 0)
+        elif ml_val == True and mr_val == False:
+            right(0.5, 0)
+            time.sleep(0.08)
    
         #4 tracking pins level status
         # X 0 0 X
-    elif ml_val == False and mr_val == False:
-	    run(0.5, 0.5)
+        elif ml_val == False and mr_val == False:
+	        run(0.5, 0.5)
+            time.sleep(0.08)
 
 
 
