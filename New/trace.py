@@ -62,6 +62,7 @@ if __name__ == '__main__':
         if fl_val == False and (mr_val == False or  fr_val == False):
             spin_left(0.5, 0.5)
             time.sleep(0.08)
+        # 0 X X X
         #Left_sensor1 detected black line
         elif fl_val == False:
             spin_left(0.5, 0.5)
@@ -69,6 +70,9 @@ if __name__ == '__main__':
         elif ml_val == False and mr_val == True:
             left(0,0.5)
             time.sleep(0.08)
+   
+        #4 tracking pins level status
+        # X 1 0 X  
         elif ml_val == True and mr_val == False:
             right(0.5, 0)
             time.sleep(0.08)
@@ -78,8 +82,6 @@ if __name__ == '__main__':
         elif ml_val == False and mr_val == False:
             run(0.5, 0.5)
             time.sleep(0.08)
-
-        stop()
 
 
 
