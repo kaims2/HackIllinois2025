@@ -41,7 +41,7 @@ def spin_right(leftspeed, rightspeed):
 
 def stop():
     drivetrain.left_motor.forward(0)
-    drivetrain.right_motor.backward(0)
+    drivetrain.right_motor.forward(0)
 
 if __name__ == '__main__':
 
@@ -60,23 +60,23 @@ if __name__ == '__main__':
 
     while (fl_val or fr_val or ml_val or mr_val) == True:
         if fl_val == False and (mr_val == False or  fr_val == False):
-            spin_left(0.5, 0.5)
+            spin_left(0.25, 0.25)
             time.sleep(0.08)
         #Left_sensor1 detected black line
         elif fl_val == False:
-            spin_left(0.5, 0.5)
+            spin_left(0.25, 0.25)
             time.sleep(0.08)
         elif ml_val == False and mr_val == True:
-            left(0,0.5)
+            left(0,0.25)
             time.sleep(0.08)
         elif ml_val == True and mr_val == False:
-            right(0.5, 0)
+            right(0.25, 0)
             time.sleep(0.08)
    
         #4 tracking pins level status
         # X 0 0 X
         elif ml_val == False and mr_val == False:
-            run(0.5, 0.5)
+            run(0.25, 0.25)
             time.sleep(0.08)
 
         stop()
