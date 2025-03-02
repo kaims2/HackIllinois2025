@@ -8,11 +8,7 @@ import signal
 drivetrain = Drivetrain()
 line_sensors = LineSensors()
 
-reset_interval = 7
-last_reset_time = time.time()
 
-led = gpiozero.RGBLED(
-    constants.LED_PINS['red'], constants.LED_PINS['green'], constants.LED_PINS['blue'])
 
 def move(left, right):
     if left >= 0:
@@ -24,16 +20,43 @@ def move(left, right):
     else:
         drivetrain.right_motor.backward(-right)
 
+
+reset_interval = 7
+last_reset_time = time.time()
+
+led = gpiozero.RGBLED(constants.LED_PINS['red'], constants.LED_PINS['green'], constants.LED_PINS['blue'])
+
+f_speed, b_speed = 0.35, 0.55
+
+
 if __name__ == '__main__':
 
-    def signal_handler(sig, frame):
-        drivetrain.left_motor.close()
-        drivetrain.right_motor.close()
-        exit(0)
+    while True:
+        det1 = not line_sensors.far_left_sensor.value #left most
+        det2 = not line_sensors.middle_left_sensor.value
+        det3 = not line_sensors.middle_right_sensor.value
+        det4 = not line_sensors.far_right_sensor.value #right most
 
-    signal.signal(signal.SIGINT, signal_handler)
+        move(0.4,0.4)
+        time.sleep(0.1)
+        if (det1 or det2 or det3 or det4)==True:
+            break 
+    print('hi')
+    move(0.4,0.4)
+    time.sleep(0.1)
+    print('hi')
 
-    f_speed, b_speed = 0.35, 0.55
+    while True:
+        det1 = not line_sensors.far_left_sensor.value #left most
+        det2 = not line_sensors.middle_left_sensor.value
+        det3 = not line_sensors.middle_right_sensor.value
+        det4 = not line_sensors.far_right_sensor.value #right most
+
+        move(-0.5,0.5)
+        time.sleep(0.05)
+        if (det1 or det2 or det3 or det4)==True:
+            break
+
 
     while True:
 

@@ -1,4 +1,7 @@
 import gpiozero
+from gpiozero import Device
+from gpiozero.pins.pigpio import PiGPIOFactory
+Device.pin_factory = PiGPIOFactory()
 from scout import constants
 from scout.drivetrain import Drivetrain
 import time
